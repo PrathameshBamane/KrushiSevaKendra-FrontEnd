@@ -1,0 +1,67 @@
+<body>
+    <main id="main" class="main">
+        <section class="section dashboard">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><b>Towns</b></h5>
+
+                    <!-- Vertical Form -->
+
+                    <form class="row g-3" [formGroup]="formdata" (ngSubmit)="Submit(formdata.value)">
+
+                        <div class="col-12">
+                            <label for="inputEmail4" class="form-label">Name</label>
+                            <input type="email" class="form-control" id="inputEmail4" formControlName="name">
+                        </div>
+
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Save</button>
+
+                        </div>
+                    </form><!-- Vertical Form -->
+
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+
+                    <!-- Table with hoverable rows -->
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Name</th>
+
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let town of towns;  let i= index">
+
+
+
+                                <td>{{i+1}}</td>
+                                <td>{{town.name}}</td>
+
+                                <td>
+                                    <button type="button" class="btn btn-success text-capitalize mx-3 btn-sm"
+                                        (click)="edit(town.id)">edit</button>
+                                    <button type="button" class="btn btn-danger text-capitalize btn-sm"
+                                        (click)="delete(town.id)">delete</button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <!-- End Table with hoverable rows -->
+
+                </div>
+            </div>
+
+        </section>
+         
+    </main>
+</body>

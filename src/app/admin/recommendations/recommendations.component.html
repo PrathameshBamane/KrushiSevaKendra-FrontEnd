@@ -1,0 +1,83 @@
+<body>
+    <main id="main" class="main">
+        <section class="section dashboard">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><b>Recommendations</b></h5>
+
+                    <!-- Vertical Form -->
+                    <form class="row g-3">
+
+                        <div class="col-md-4">
+                            <label class="form-label">Recommendations Date</label>
+                            <input type="date" class="form-control" formControlName="rdate">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label">Farmer Id</label>
+                            <input type="email" class="form-control" formControlName="farmerid">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label">Crop Id</label>
+                            <input type="email" class="form-control" formControlName="cropid">
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Message</label>
+                            <input type="email" class="form-control" formControlName="message">
+                        </div>
+
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+
+                        </div>
+                    </form><!-- Vertical Form -->
+
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+
+                    <!-- Table with hoverable rows -->
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+
+                                <th scope="col">Recommendations Date</th>
+                                <th scope="col">Farmer Id</th>
+                                <th scope="col">Crop Id</th>
+                                <th scope="col">Message</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let recommendation of recommendations;  let i= index">
+                                <td>{{i+1}}</td>
+                                <td>{{recommendation.rdate}}</td>
+                                <td>{{recommendation.farmerid}}</td>
+                                <td>{{recommendation.cropid}}</td>
+                                <td>{{recommendation.message}}</td>
+
+                                <td>
+                                    <button type="button" class="btn btn-success text-capitalize mx-3 btn-sm"
+                                        (click)="edit(recommendation.id)">edit</button>
+                                    <button type="button" class="btn btn-danger text-capitalize btn-sm"
+                                        (click)="delete(recommendation.id)">delete</button>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <!-- End Table with hoverable rows -->
+
+                </div>
+            </div>
+        </section>
+         
+    </main>
+</body>
